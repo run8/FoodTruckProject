@@ -1,6 +1,5 @@
 package com.skilldistillery.app;
 
-import java.util.Iterator;
 import java.util.Scanner;
 
 public class FoodTruckApp {
@@ -11,7 +10,7 @@ public class FoodTruckApp {
 	public static void main(String[] args) {
 		FoodTruckApp app = new FoodTruckApp();
 		Scanner scanner = new Scanner(System.in);
-		app.run(scanner);
+		app.userRatesTrucks(scanner);
 
 		while (!app.quit) {
 			int selection = app.presentMenuReturnSelection(scanner);
@@ -30,7 +29,6 @@ public class FoodTruckApp {
 			default:
 				break;
 			}
-
 		}
 		scanner.close();
 	}
@@ -60,12 +58,12 @@ public class FoodTruckApp {
 		System.out.println("\n Higheset rated truck is: \n" + highestRatedTruck.toString());
 	}
 
-	public void run(Scanner scanner) {
+	public void userRatesTrucks(Scanner scanner) {
 		while (!quit && ti < 5) {
 			System.out.print("Enter truck name: ");
 			String name = scanner.next();
 			if (name.equals("quit")) {
-				quit = true;
+				break;
 			} else {
 				System.out.print("Enter food type: ");
 				String type = scanner.next();
@@ -81,10 +79,7 @@ public class FoodTruckApp {
 	public void presentTrucksInfo() {
 		for (FoodTruck foodTruck : foodTruckArr) {
 			if (!(foodTruck == null)) {
-				System.out.println("Name: " + foodTruck.getName());
-				System.out.println("Food Type: " + foodTruck.getFoodType());
-				System.out.println("Rating: " + foodTruck.getRating());
-				System.out.println("/////////////////////////////////");
+				System.out.println(foodTruck.toString());
 			}
 		}
 	}
@@ -101,16 +96,4 @@ public class FoodTruckApp {
 
 		return (scanner.nextInt());
 	}
-
-//	public String listAllExistingFoodTrucks() {
-//		String info = "";
-//
-//		for (int i = 0; i < foodTruckArr.length; i++) {
-//			if (!foodTruckArr[i].equals("quit")) {
-//				info += foodTruckArr[i].toString();
-//			}
-//		}
-//
-//		return info;
-//	}
 }
