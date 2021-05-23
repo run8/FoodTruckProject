@@ -10,14 +10,19 @@ public class FoodTruckApp {
 	public static void main(String[] args) {
 		FoodTruckApp app = new FoodTruckApp();
 		Scanner scanner = new Scanner(System.in);
-
+		
 		app.run(scanner);
 		app.presentTrucksInfo();
+		System.out.println("Hello");
+//		int selection = app.presentMenuReturnSelection(scanner);
+//		System.out.println("selection: " + selection);
+		
+		scanner.close();
 	}
 
 	public void run(Scanner scanner) {
 
-		while (!quit && ti < 3) {
+		while (!quit && ti < 2) {
 			System.out.print("Enter truck name: ");
 			String name = scanner.next();
 			if (name.equals("quit")) {
@@ -31,8 +36,6 @@ public class FoodTruckApp {
 				ti++;
 			}
 		}
-
-//		System.out.println("FoodtruckArr length: " + foodTruckArr.length);
 	}
 
 //	public String getTruckDataFromUser() {
@@ -42,9 +45,12 @@ public class FoodTruckApp {
 
 	public void presentTrucksInfo() {
 		for (FoodTruck foodTruck : foodTruckArr) {
+			if(!(foodTruck == null)) {
 			System.out.println("Name: " + foodTruck.getName());
 			System.out.println("Food Type: " + foodTruck.getFoodType());
 			System.out.println("Rating: " + foodTruck.getRating());
+			System.out.println("/////////////////////////////////");
+			}
 		}
 	}
 
