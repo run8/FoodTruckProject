@@ -6,7 +6,7 @@ of 1-10. After the user has rated a number of food trucks, the user selects
 from a menu of options: See highest rated truck, see average rating of all
 trucks and more.
 
-## Project Purpose ##
+### Project Purpose ###
 To practice implementing static fields, creating custom classes,
 encapsulating data by using private fields with getters and setters and
 practice implementing more complex methods with conditionals and loops.
